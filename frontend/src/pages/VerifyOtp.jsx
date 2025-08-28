@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { RotateCcw } from "lucide-react";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ForgotOtp = () => {
   const [otp, setOtp] = useState(new Array(6).fill("")); // otp array
@@ -22,6 +23,8 @@ const ForgotOtp = () => {
   const inputRefs = useRef([]);
   const { email } = useParams();
   const navigate = useNavigate();
+
+  
 
   // OTP Input change handler
   const handleChange = (index, value) => {
@@ -46,7 +49,7 @@ const ForgotOtp = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `http://localhost:3000/auth/user/verify-otp/${email}`,
+        `${apiUrl}/verify-otp/${email}`,
         { otp: finalOtp }
       );
       setSuccessMessage(res.data.message);
