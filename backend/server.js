@@ -8,25 +8,20 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(express.json());
-const allowedOrigins = [
-  "http://localhost:5173", // local dev
-  "https://mern-authentication-authorization-s.vercel.app/", // vercel frontend
-];
+
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps, curl, postman)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg =
-          "The CORS policy for this site does not allow access from the specified Origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-    credentials: true, // if using cookies/auth headers
+    origin: [
+      "http://localhost:5173",
+      "https://mern-authentication-authorization-system-g37a432cf.vercel.app",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // <-- add this
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
 
 connectDB();
 
