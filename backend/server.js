@@ -10,9 +10,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 app.use(cors({
-  origin: [
-    "*"  
-  ],
+  origin:"https://mern-authentication-authorization-system-r9j7-e06giorvj.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
