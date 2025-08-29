@@ -47,7 +47,7 @@ const SignUp = () => {
       });
 
       if (res.data.success) {
-        navigate("/verify");
+        navigate(`/verify/${res.data.token}`);
         toast.success(res.data.message);
       }
     } catch (error) {
