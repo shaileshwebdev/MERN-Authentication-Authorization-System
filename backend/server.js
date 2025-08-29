@@ -9,13 +9,14 @@ const app = express();
 const port = process.env.PORT || 8080;
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: [
+    "https://mern-authentication-authorization-s.vercel.app", // Production frontend
+    "http://localhost:5173"  // Local development
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 
 
