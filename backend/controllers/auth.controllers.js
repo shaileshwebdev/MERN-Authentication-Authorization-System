@@ -57,6 +57,7 @@ export const registerUser = async (req, res) => {
       success: true,
       message:
         "User created successfully. Please check your email for verification.",
+      token: generatedToken, 
     });
   } catch (error) {
     console.error("Register error:", error.message);
