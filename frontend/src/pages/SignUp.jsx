@@ -142,6 +142,14 @@ const SignUp = () => {
               "SignUp"
             )}
           </Button>
+          <div className="text-center">
+            <p className="text-gray-600 text-sm">
+              Already have an account?{" "}
+              <Link to="/login" className="text-green-600 font-medium hover:underline">
+                Login
+              </Link>
+            </p>
+          </div>
         </CardFooter>
       </Card>
     </div>
