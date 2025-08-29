@@ -134,6 +134,14 @@ const Login = () => {
                 "Login"
               )}
             </Button>
+            <div className="text-center">
+            <p className="text-gray-600 text-sm">
+              Don’t have an account?{" "}
+              <Link to="/signup" className="text-green-600 font-medium hover:underline">
+                Sign Up
+              </Link>
+            </p>
+          </div>
           </CardFooter>
         </Card>
       </div>
